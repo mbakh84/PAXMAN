@@ -1,1 +1,2 @@
-<b>PAXMAN</b> is a simplified Sample of "pacman" game. no graphical libraries are used in this program and every graphical shape is a handmade shape which made from symbol characters. 
+<b>PAXMAN</b> is a simplified Sample of "pacman" game. no graphical libraries are used in this program and every graphical shape is a handmade shape which made from symbol characters. there is pacman, ghost, coin and Pill characters in this game.<br> pacman should collect all coins to win the game and if it collet a pill character, ghosts will run from pacman and they cant kill it (for 7 moves)<br>
+
