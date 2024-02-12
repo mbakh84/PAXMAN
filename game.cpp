@@ -208,13 +208,14 @@ int move_point_achive_death(ground * pground,pax * ppacman,ghost * list_of_ghost
     {
         if(pground->coords[ppacman->i-1][ppacman->j] != '#')  //check for wall
         {
-            if (pground->coords[ppacman->i-1][ppacman->j] == 'o')  //check for coin
-            {
-                (ppacman->point)++;
-            }
-            else if ((list_of_ghosts[0].i == ppacman->i-1 and list_of_ghosts[0].j == ppacman->j) or (list_of_ghosts[1].i == ppacman->i-1 and list_of_ghosts[1].j == ppacman->j) and !ppacman->state)
+            
+            if ((list_of_ghosts[0].i == ppacman->i-1 and list_of_ghosts[0].j == ppacman->j) or (list_of_ghosts[1].i == ppacman->i-1 and list_of_ghosts[1].j == ppacman->j) and !ppacman->state)  //check for coin
             {
                 return 0;
+            }
+            else if (pground->coords[ppacman->i-1][ppacman->j] == 'o')
+            {
+                (ppacman->point)++;
             }
             else if (pground->coords[ppacman->i-1][ppacman->j] == 'P')  //check for energy
             {
@@ -232,14 +233,17 @@ int move_point_achive_death(ground * pground,pax * ppacman,ghost * list_of_ghost
         
         if(pground->coords[ppacman->i+1][ppacman->j] != '#')
         {
-            if (pground->coords[ppacman->i+1][ppacman->j] == 'o')
-            {
-                (ppacman->point)++;
-            }
-            else if ((list_of_ghosts[0].i == ppacman->i+1 and list_of_ghosts[0].j == ppacman->j) or (list_of_ghosts[1].i == ppacman->i+1 and list_of_ghosts[1].j == ppacman->j) and !ppacman->state)
+
+            if ((list_of_ghosts[0].i == ppacman->i+1 and list_of_ghosts[0].j == ppacman->j) or (list_of_ghosts[1].i == ppacman->i+1 and list_of_ghosts[1].j == ppacman->j) and !ppacman->state)
             {
                 return 0;
             }
+
+            else if (pground->coords[ppacman->i+1][ppacman->j] == 'o')
+            {
+                (ppacman->point)++;
+            }
+            
             else if (pground->coords[ppacman->i+1][ppacman->j] == 'P')
             {
                 pground->coords[ppacman->i+1][ppacman->j] = ' ';
@@ -254,14 +258,17 @@ int move_point_achive_death(ground * pground,pax * ppacman,ghost * list_of_ghost
     {
         if(pground->coords[ppacman->i][ppacman->j-1] != '#')
         {
-            if (pground->coords[ppacman->i][ppacman->j-1] == 'o')
-            {
-                (ppacman->point)++;
-            }
-            else if ((list_of_ghosts[0].i == ppacman->i and list_of_ghosts[0].j == ppacman->j-1) or (list_of_ghosts[1].i == ppacman->i and list_of_ghosts[1].j == ppacman->j-1) and !ppacman->state)
+
+            if ((list_of_ghosts[0].i == ppacman->i and list_of_ghosts[0].j == ppacman->j-1) or (list_of_ghosts[1].i == ppacman->i and list_of_ghosts[1].j == ppacman->j-1) and !ppacman->state)
             {
                 return 0;
             }
+
+            else if (pground->coords[ppacman->i][ppacman->j-1] == 'o')
+            {
+                (ppacman->point)++;
+            }
+            
             else if (pground->coords[ppacman->i][ppacman->j-1] == 'P')
             {
                 pground->coords[ppacman->i][ppacman->j-1] = ' ';
@@ -276,14 +283,16 @@ int move_point_achive_death(ground * pground,pax * ppacman,ghost * list_of_ghost
     { 
        if(pground->coords[ppacman->i][ppacman->j+1] != '#')
         {
-            if (pground->coords[ppacman->i][ppacman->j+1] == 'o')
-            {
-                (ppacman->point)++;
-            }
-            else if ((list_of_ghosts[0].i == ppacman->i and list_of_ghosts[0].j == ppacman->j+1) or (list_of_ghosts[1].i == ppacman->i and list_of_ghosts[1].j == ppacman->j+1) and !ppacman->state)
+            if ((list_of_ghosts[0].i == ppacman->i and list_of_ghosts[0].j == ppacman->j+1) or (list_of_ghosts[1].i == ppacman->i and list_of_ghosts[1].j == ppacman->j+1) and !ppacman->state)
             {
                 return 0;
             }
+
+            else if (pground->coords[ppacman->i][ppacman->j+1] == 'o')
+            {
+                (ppacman->point)++;
+            }
+            
             else if (pground->coords[ppacman->i][ppacman->j+1] == 'P')
             {
                 pground->coords[ppacman->i][ppacman->j+1] = ' ';
