@@ -27,6 +27,9 @@ typedef struct ground  //define playground class
     int wpoint;
 }ground;
 
+DWORD bytes_written;
+HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+
 void Color(int color)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
@@ -768,7 +771,8 @@ void save_game(ground * field,char fname[60],pax * pacman,ghost * list_of_ghosts
 
 int game(char * Uname,int which)
 {
-    system("CLS");
+    COORD origin = {0, 0};
+    SetConsoleCursorPosition(hStdout, origin);
     int res;
     int start_wait=0;//flag shows start of a game
 
@@ -793,7 +797,8 @@ int game(char * Uname,int which)
             start_wait=1;
         }
         
-        system("CLS");
+        COORD origin = {0, 0};
+        SetConsoleCursorPosition(hStdout, origin);
 
         res=move_point_achive_death(field,pacman,list_of_ghosts); //moves pacman
 
@@ -805,6 +810,7 @@ int game(char * Uname,int which)
         if(!res) //is there any thoch bitween pacman and ghosts
         {
             save_game(field,Uname,pacman,list_of_ghosts,0,level-1); //delete datas from game map and make the last game checker variable 0
+            system("CLS");
             cout<<"looser!";
             Sleep(4000);
             return level-1;
@@ -814,6 +820,7 @@ int game(char * Uname,int which)
         if(!res)
         {
             save_game(field,Uname,pacman,list_of_ghosts,0,level-1); //delete game map and make the last game checker variable 0 in player account file
+            system("CLS");
             cout<<"looser!";
             Sleep(4000);
             return level-1;
@@ -821,7 +828,7 @@ int game(char * Uname,int which)
         if (pacman->point==field->wpoint)
         {
             save_game(field,Uname,pacman,list_of_ghosts,0,level+3); //delete game map and make the last game checker variable 0 in player account file
-            
+            system("CLS");
             cout<<"winner!";
             Sleep(4000);
             return level+3;
@@ -829,6 +836,3 @@ int game(char * Uname,int which)
         save_game(field,Uname,pacman,list_of_ghosts,1,level); //save datas in the player account file
     }
 }
-
-
-
