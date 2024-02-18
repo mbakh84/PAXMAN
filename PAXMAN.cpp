@@ -13,6 +13,7 @@
 using namespace std;
 int main()
 {
+    ::SendMessage(::GetConsoleWindow(), WM_SYSKEYDOWN, VK_RETURN, 0x20000000);
     int which; //main menu option selector
     char Fname[60]; //file name will save at this variable
     text();
